@@ -1,0 +1,141 @@
+SampleID	SourceSink	Env
+M_Mut403_CC	source	M_Mut_Cecal_Contents
+M_Mut403_CL	source	M_Mut_Cecal_Lining
+M_Mut407_CC	source	M_Mut_Cecal_Contents
+M_Mut407_CL	source	M_Mut_Cecal_Lining
+M_Mut408_CC	source	M_Mut_Cecal_Contents
+M_Mut408_CL	source	M_Mut_Cecal_Lining
+M_Mut428_CC	source	M_Mut_Cecal_Contents
+M_Mut428_CL	source	M_Mut_Cecal_Lining
+M_Mut449_CC	source	M_Mut_Cecal_Contents
+M_Mut449_CL	source	M_Mut_Cecal_Lining
+M_Mut452_CC	source	M_Mut_Cecal_Contents
+M_Mut452_CL	source	M_Mut_Cecal_Lining
+M_Mut461_CC	source	M_Mut_Cecal_Contents
+M_Mut461_CL	source	M_Mut_Cecal_Lining
+M_Mut465_CC	source	M_Mut_Cecal_Contents
+M_Mut465_CL	source	M_Mut_Cecal_Lining
+M_Mut466_CC	source	M_Mut_Cecal_Contents
+M_Mut466_CL	source	M_Mut_Cecal_Lining
+M_Mut472_CC	source	M_Mut_Cecal_Contents
+M_Mut472_CL	source	M_Mut_Cecal_Lining
+M_Mut489_CC	source	M_Mut_Cecal_Contents
+M_Mut489_CL	source	M_Mut_Cecal_Lining
+M_Mut509_CC	source	M_Mut_Cecal_Contents
+M_Mut509_CL	source	M_Mut_Cecal_Lining
+M_Mut510_CC	source	M_Mut_Cecal_Contents
+M_Mut510_CL	source	M_Mut_Cecal_Lining
+M_Mut528_CC	source	M_Mut_Cecal_Contents
+M_Mut528_CL	source	M_Mut_Cecal_Lining
+M_Mut535_CC	source	M_Mut_Cecal_Contents
+M_Mut535_CL	source	M_Mut_Cecal_Lining
+M_Mut536_CC	source	M_Mut_Cecal_Contents
+M_Mut536_CL	source	M_Mut_Cecal_Lining
+M_Mut547_CC	source	M_Mut_Cecal_Contents
+M_Mut547_CL	source	M_Mut_Cecal_Lining
+M_Mut548_CC	source	M_Mut_Cecal_Contents
+M_Mut548_CL	source	M_Mut_Cecal_Lining
+M_Mut553_CC	source	M_Mut_Cecal_Contents
+M_Mut553_CL	source	M_Mut_Cecal_Lining
+M_Mut578_CC	source	M_Mut_Cecal_Contents
+M_Mut578_CL	source	M_Mut_Cecal_Lining
+M_Mut403_DC	source	M_Mut_Duodenum_Contents
+M_Mut403_DL	source	M_Mut_Duodenum_Lining
+M_Mut407_DC	source	M_Mut_Duodenum_Contents
+M_Mut407_DL	source	M_Mut_Duodenum_Lining
+M_Mut408_DC	source	M_Mut_Duodenum_Contents
+M_Mut408_DL	source	M_Mut_Duodenum_Lining
+M_Mut428_DC	source	M_Mut_Duodenum_Contents
+M_Mut428_DL	source	M_Mut_Duodenum_Lining
+M_Mut449_DC	source	M_Mut_Duodenum_Contents
+M_Mut449_DL	source	M_Mut_Duodenum_Lining
+M_Mut452_DC	source	M_Mut_Duodenum_Contents
+M_Mut452_DL	source	M_Mut_Duodenum_Lining
+M_Mut461_DC	source	M_Mut_Duodenum_Contents
+M_Mut461_DL	source	M_Mut_Duodenum_Lining
+M_Mut465_DC	source	M_Mut_Duodenum_Contents
+M_Mut465_DL	source	M_Mut_Duodenum_Lining
+M_Mut466_DC	source	M_Mut_Duodenum_Contents
+M_Mut466_DL	source	M_Mut_Duodenum_Lining
+M_Mut472_DC	source	M_Mut_Duodenum_Contents
+M_Mut472_DL	source	M_Mut_Duodenum_Lining
+M_Mut489_DC	source	M_Mut_Duodenum_Contents
+M_Mut489_DL	source	M_Mut_Duodenum_Lining
+M_Mut509_DC	source	M_Mut_Duodenum_Contents
+M_Mut509_DL	source	M_Mut_Duodenum_Lining
+M_Mut510_DC	source	M_Mut_Duodenum_Contents
+M_Mut510_DL	source	M_Mut_Duodenum_Lining
+M_Mut528_DC	source	M_Mut_Duodenum_Contents
+M_Mut528_DL	source	M_Mut_Duodenum_Lining
+M_Mut535_DC	source	M_Mut_Duodenum_Contents
+M_Mut535_DL	source	M_Mut_Duodenum_Lining
+M_Mut536_DC	source	M_Mut_Duodenum_Contents
+M_Mut536_DL	source	M_Mut_Duodenum_Lining
+M_Mut547_DC	source	M_Mut_Duodenum_Contents
+M_Mut547_DL	source	M_Mut_Duodenum_Lining
+M_Mut548_DC	source	M_Mut_Duodenum_Contents
+M_Mut548_DL	source	M_Mut_Duodenum_Lining
+M_Mut553_DC	source	M_Mut_Duodenum_Contents
+M_Mut553_DL	source	M_Mut_Duodenum_Lining
+M_Mut578_DC	source	M_Mut_Duodenum_Contents
+M_Mut578_DL	source	M_Mut_Duodenum_Lining
+M_Mut403_IC	source	M_Mut_Ileum Contents
+M_Mut403_IL	source	M_Mut_Ileum_Lining
+M_Mut407_IC	source	M_Mut_Ileum Contents
+M_Mut407_IL	source	M_Mut_Ileum_Lining
+M_Mut408_IC	source	M_Mut_Ileum Contents
+M_Mut408_IL	source	M_Mut_Ileum_Lining
+M_Mut428_IC	source	M_Mut_Ileum Contents
+M_Mut428_IL	source	M_Mut_Ileum_Lining
+M_Mut449_IC	source	M_Mut_Ileum Contents
+M_Mut449_IL	source	M_Mut_Ileum_Lining
+M_Mut452_IC	source	M_Mut_Ileum Contents
+M_Mut452_IL	source	M_Mut_Ileum_Lining
+M_Mut461_IC	source	M_Mut_Ileum Contents
+M_Mut461_IL	source	M_Mut_Ileum_Lining
+M_Mut465_IC	source	M_Mut_Ileum Contents
+M_Mut465_IL	source	M_Mut_Ileum_Lining
+M_Mut466_IC	source	M_Mut_Ileum Contents
+M_Mut466_IL	source	M_Mut_Ileum_Lining
+M_Mut472_IC	source	M_Mut_Ileum Contents
+M_Mut472_IL	source	M_Mut_Ileum_Lining
+M_Mut489_IC	source	M_Mut_Ileum Contents
+M_Mut489_IL	source	M_Mut_Ileum_Lining
+M_Mut509_IC	source	M_Mut_Ileum Contents
+M_Mut509_IL	source	M_Mut_Ileum_Lining
+M_Mut510_IC	source	M_Mut_Ileum Contents
+M_Mut510_IL	source	M_Mut_Ileum_Lining
+M_Mut528_IC	source	M_Mut_Ileum Contents
+M_Mut528_IL	source	M_Mut_Ileum_Lining
+M_Mut535_IC	source	M_Mut_Ileum Contents
+M_Mut535_IL	source	M_Mut_Ileum_Lining
+M_Mut536_IC	source	M_Mut_Ileum Contents
+M_Mut536_IL	source	M_Mut_Ileum_Lining
+M_Mut547_IC	source	M_Mut_Ileum Contents
+M_Mut547_IL	source	M_Mut_Ileum_Lining
+M_Mut548_IC	source	M_Mut_Ileum Contents
+M_Mut548_IL	source	M_Mut_Ileum_Lining
+M_Mut553_IC	source	M_Mut_Ileum Contents
+M_Mut553_IL	source	M_Mut_Ileum_Lining
+M_Mut578_IC	source	M_Mut_Ileum Contents
+M_Mut578_IL	source	M_Mut_Ileum_Lining
+M_Mut403_10	sink	M_Mut
+M_Mut407_10	sink	M_Mut
+M_Mut408_10	sink	M_Mut
+M_Mut428_10	sink	M_Mut
+M_Mut449_10	sink	M_Mut
+M_Mut452_10	sink	M_Mut
+M_Mut461_10	sink	M_Mut
+M_Mut465_10	sink	M_Mut
+M_Mut466_10	sink	M_Mut
+M_Mut472_10	sink	M_Mut
+M_Mut489_10	sink	M_Mut
+M_Mut509_10	sink	M_Mut
+M_Mut510_10	sink	M_Mut
+M_Mut528_10	sink	M_Mut
+M_Mut535_10	sink	M_Mut
+M_Mut536_10	sink	M_Mut
+M_Mut547_10	sink	M_Mut
+M_Mut548_10	sink	M_Mut
+M_Mut553_10	sink	M_Mut
+M_Mut578_10	sink	M_Mut

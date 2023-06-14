@@ -1,0 +1,141 @@
+SampleID	SourceSink	Env
+F_WT412_CC	source	F_WT_Cecal_Contents
+F_WT412_CL	source	F_WT_Cecal_Lining
+F_WT433_CC	source	F_WT_Cecal_Contents
+F_WT433_CL	source	F_WT_Cecal_Lining
+F_WT437_CC	source	F_WT_Cecal_Contents
+F_WT437_CL	source	F_WT_Cecal_Lining
+F_WT438_CC	source	F_WT_Cecal_Contents
+F_WT438_CL	source	F_WT_Cecal_Lining
+F_WT439_CC	source	F_WT_Cecal_Contents
+F_WT439_CL	source	F_WT_Cecal_Lining
+F_WT451_CC	source	F_WT_Cecal_Contents
+F_WT451_CL	source	F_WT_Cecal_Lining
+F_WT456_CC	source	F_WT_Cecal_Contents
+F_WT456_CL	source	F_WT_Cecal_Lining
+F_WT471_CC	source	F_WT_Cecal_Contents
+F_WT471_CL	source	F_WT_Cecal_Lining
+F_WT484_CC	source	F_WT_Cecal_Contents
+F_WT484_CL	source	F_WT_Cecal_Lining
+F_WT485_CC	source	F_WT_Cecal_Contents
+F_WT485_CL	source	F_WT_Cecal_Lining
+F_WT519_CC	source	F_WT_Cecal_Contents
+F_WT519_CL	source	F_WT_Cecal_Lining
+F_WT521_CC	source	F_WT_Cecal_Contents
+F_WT521_CL	source	F_WT_Cecal_Lining
+F_WT522_CC	source	F_WT_Cecal_Contents
+F_WT522_CL	source	F_WT_Cecal_Lining
+F_WT532_CC	source	F_WT_Cecal_Contents
+F_WT532_CL	source	F_WT_Cecal_Lining
+F_WT549_CC	source	F_WT_Cecal_Contents
+F_WT549_CL	source	F_WT_Cecal_Lining
+F_WT562_CC	source	F_WT_Cecal_Contents
+F_WT562_CL	source	F_WT_Cecal_Lining
+F_WT573_CC	source	F_WT_Cecal_Contents
+F_WT573_CL	source	F_WT_Cecal_Lining
+F_WT580_CC	source	F_WT_Cecal_Contents
+F_WT580_CL	source	F_WT_Cecal_Lining
+F_WT590_CC	source	F_WT_Cecal_Contents
+F_WT590_CL	source	F_WT_Cecal_Lining
+F_WT592_CC	source	F_WT_Cecal_Contents
+F_WT592_CL	source	F_WT_Cecal_Lining
+F_WT412_DC	source	F_WT_Duodenum_Contents
+F_WT412_DL	source	F_WT_Duodenum_Lining
+F_WT433_DC	source	F_WT_Duodenum_Contents
+F_WT433_DL	source	F_WT_Duodenum_Lining
+F_WT437_DC	source	F_WT_Duodenum_Contents
+F_WT437_DL	source	F_WT_Duodenum_Lining
+F_WT438_DC	source	F_WT_Duodenum_Contents
+F_WT438_DL	source	F_WT_Duodenum_Lining
+F_WT439_DC	source	F_WT_Duodenum_Contents
+F_WT439_DL	source	F_WT_Duodenum_Lining
+F_WT451_DC	source	F_WT_Duodenum_Contents
+F_WT451_DL	source	F_WT_Duodenum_Lining
+F_WT456_DC	source	F_WT_Duodenum_Contents
+F_WT456_DL	source	F_WT_Duodenum_Lining
+F_WT471_DC	source	F_WT_Duodenum_Contents
+F_WT471_DL	source	F_WT_Duodenum_Lining
+F_WT484_DC	source	F_WT_Duodenum_Contents
+F_WT484_DL	source	F_WT_Duodenum_Lining
+F_WT485_DC	source	F_WT_Duodenum_Contents
+F_WT485_DL	source	F_WT_Duodenum_Lining
+F_WT519_DC	source	F_WT_Duodenum_Contents
+F_WT519_DL	source	F_WT_Duodenum_Lining
+F_WT521_DC	source	F_WT_Duodenum_Contents
+F_WT521_DL	source	F_WT_Duodenum_Lining
+F_WT522_DC	source	F_WT_Duodenum_Contents
+F_WT522_DL	source	F_WT_Duodenum_Lining
+F_WT532_DC	source	F_WT_Duodenum_Contents
+F_WT532_DL	source	F_WT_Duodenum_Lining
+F_WT549_DC	source	F_WT_Duodenum_Contents
+F_WT549_DL	source	F_WT_Duodenum_Lining
+F_WT562_DC	source	F_WT_Duodenum_Contents
+F_WT562_DL	source	F_WT_Duodenum_Lining
+F_WT573_DC	source	F_WT_Duodenum_Contents
+F_WT573_DL	source	F_WT_Duodenum_Lining
+F_WT580_DC	source	F_WT_Duodenum_Contents
+F_WT580_DL	source	F_WT_Duodenum_Lining
+F_WT590_DC	source	F_WT_Duodenum_Contents
+F_WT590_DL	source	F_WT_Duodenum_Lining
+F_WT592_DC	source	F_WT_Duodenum_Contents
+F_WT592_DL	source	F_WT_Duodenum_Lining
+F_WT412_IC	source	F_WT_Ileum Contents
+F_WT412_IL	source	F_WT_Ileum_Lining
+F_WT433_IC	source	F_WT_Ileum Contents
+F_WT433_IL	source	F_WT_Ileum_Lining
+F_WT437_IC	source	F_WT_Ileum Contents
+F_WT437_IL	source	F_WT_Ileum_Lining
+F_WT438_IC	source	F_WT_Ileum Contents
+F_WT438_IL	source	F_WT_Ileum_Lining
+F_WT439_IC	source	F_WT_Ileum Contents
+F_WT439_IL	source	F_WT_Ileum_Lining
+F_WT451_IC	source	F_WT_Ileum Contents
+F_WT451_IL	source	F_WT_Ileum_Lining
+F_WT456_IC	source	F_WT_Ileum Contents
+F_WT456_IL	source	F_WT_Ileum_Lining
+F_WT471_IC	source	F_WT_Ileum Contents
+F_WT471_IL	source	F_WT_Ileum_Lining
+F_WT484_IC	source	F_WT_Ileum Contents
+F_WT484_IL	source	F_WT_Ileum_Lining
+F_WT485_IC	source	F_WT_Ileum Contents
+F_WT485_IL	source	F_WT_Ileum_Lining
+F_WT519_IC	source	F_WT_Ileum Contents
+F_WT519_IL	source	F_WT_Ileum_Lining
+F_WT521_IC	source	F_WT_Ileum Contents
+F_WT521_IL	source	F_WT_Ileum_Lining
+F_WT522_IC	source	F_WT_Ileum Contents
+F_WT522_IL	source	F_WT_Ileum_Lining
+F_WT532_IC	source	F_WT_Ileum Contents
+F_WT532_IL	source	F_WT_Ileum_Lining
+F_WT549_IC	source	F_WT_Ileum Contents
+F_WT549_IL	source	F_WT_Ileum_Lining
+F_WT562_IC	source	F_WT_Ileum Contents
+F_WT562_IL	source	F_WT_Ileum_Lining
+F_WT573_IC	source	F_WT_Ileum Contents
+F_WT573_IL	source	F_WT_Ileum_Lining
+F_WT580_IC	source	F_WT_Ileum Contents
+F_WT580_IL	source	F_WT_Ileum_Lining
+F_WT590_IC	source	F_WT_Ileum Contents
+F_WT590_IL	source	F_WT_Ileum_Lining
+F_WT592_IC	source	F_WT_Ileum Contents
+F_WT592_IL	source	F_WT_Ileum_Lining
+F_WT412_10	sink	F_WT
+F_WT433_10	sink	F_WT
+F_WT437_10	sink	F_WT
+F_WT438_10	sink	F_WT
+F_WT439_10	sink	F_WT
+F_WT451_10	sink	F_WT
+F_WT456_10	sink	F_WT
+F_WT471_10	sink	F_WT
+F_WT484_10	sink	F_WT
+F_WT485_10	sink	F_WT
+F_WT519_10	sink	F_WT
+F_WT521_10	sink	F_WT
+F_WT522_10	sink	F_WT
+F_WT532_10	sink	F_WT
+F_WT549_10	sink	F_WT
+F_WT562_10	sink	F_WT
+F_WT573_10	sink	F_WT
+F_WT580_10	sink	F_WT
+F_WT590_10	sink	F_WT
+F_WT592_10	sink	F_WT

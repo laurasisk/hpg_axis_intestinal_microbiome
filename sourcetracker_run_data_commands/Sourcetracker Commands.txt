@@ -1,0 +1,5 @@
+source activate st6
+\time sourcetracker2 gibbs -i 16S_f_wt_data_nadr.txt -m fecal_f_wt_mapping.txt -o fecal_full_f_wt_5_200_1/ --diagnostics --draws_per_restart 5 --restarts 200 --limit 0.01
+\time sourcetracker2 gibbs -i 16S_m_wt_data_nadr.txt -m fecal_m_wt_mapping.txt -o fecal_full_m_wt_5_200_1/ --diagnostics --draws_per_restart 5 --restarts 200 --limit 0.01
+\time sourcetracker2 gibbs -i 16S_m_mut_data_nadr.txt -m fecal_m_mut_mapping.txt -o fecal_full_m_mut_5_200_1/ --diagnostics --draws_per_restart 5 --restarts 200 --limit 0.01
+\time sourcetracker2 gibbs -i 16S_f_mut_data_nadr.txt -m fecal_f_mut_mapping.txt -o fecal_full_f_mut_5_200_1/ --diagnostics --draws_per_restart 5 --restarts 200 --limit 0.01
