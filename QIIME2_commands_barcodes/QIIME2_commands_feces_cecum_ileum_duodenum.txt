@@ -1,0 +1,263 @@
+#activate conda environment
+conda activate qiime2-2022.8
+
+
+#The following commands were done on each sequencing run (fecal, cecal, ideal, duodenal) individually, within their own folders so that names didn't have to be rewritten for each sequencing run. Within each run folder, the metadata file was placed, and the 16S sequences were placed in a folder within the run folder called sequences. Commands were executed within each run folder. 
+
+#import data into QIIME2
+qiime tools import \
+  --type MultiplexedSingleEndBarcodeInSequence \
+  --input-path sequences \
+  --output-path multiplexed_sequences.qza
+
+#this takes forever, use multiple cores if you have them
+qiime cutadapt demux-single \
+  --p-cores 8 \
+  --i-seqs multiplexed_sequences.qza \
+  --m-barcodes-file metadata.txt \
+  --m-barcodes-column Barcode \
+  --p-error-rate 0 \
+  --o-per-sample-sequences demultiplexed_sequences.qza \
+  --o-untrimmed-sequences untrimmed.qza \
+  --verbose
+
+
+#visualize the quality data
+
+mkdir visualizations
+
+qiime demux summarize \
+  --i-data demultiplexed_sequences.qza \
+  --o-visualization visualizations/demultiplexed_sequences.qzv
+
+
+# Now dada2
+
+mkdir dada2
+
+#make ASVs using dada2. cutoff of 240 based on the demux quality plot
+qiime dada2 denoise-single \
+  --i-demultiplexed-seqs demultiplexed_sequences.qza \
+  --p-n-threads 12 \
+  --p-trim-left 0 \
+  --p-trunc-len 240 \
+  --o-representative-sequences dada2/rep-seqs-dada2.qza \
+  --o-table dada2/table-dada2.qza \
+  --o-denoising-stats dada2/stats-dada2.qza \
+  --verbose
+
+mkdir ASVs
+
+
+#dada2 does dereplicating while denoising so we do not need to do that
+#Output a feature table of rep-seqs
+qiime feature-table tabulate-seqs \
+  --i-data dada2/rep-seqs-dada2.qza \
+  --o-visualization visualizations/rep-seqs.qzv
+#visualize this and download as a fasta file into the ASVs folder, save as tabulate_sequences
+
+
+#assign taxonomy 
+qiime feature-classifier classify-sklearn \
+  --i-classifier /Users/lsisk/Documents/grad_school/dissertation_project/hpg_mice_info/omics_analysis/qiime_resources/silva-138-99-515-806-nb-classifier.qza \
+  --i-reads dada2/rep-seqs-dada2.qza \
+  --p-n-jobs -2 \
+  --o-classification taxonomy.qza \
+  --verbose
+
+
+ qiime metadata tabulate \
+   --m-input-file taxonomy.qza \
+   --o-visualization visualizations/taxonomy.qzv
+
+
+#export ASVs
+#remote QIIME identified mito and chloro first
+qiime taxa filter-table --i-table dada2/table-dada2.qza \
+  --i-taxonomy taxonomy.qza \
+  --p-exclude mitochondria,chloroplast,f__family_III,f__deinococcaceae,f__thermaceae,f__geodermatophilaceae,f__chitinophagaceae,f__hydrogenophilaceae \
+  --o-filtered-table dada2/ex-mito_ex-chloro.qza
+
+
+qiime tools export \
+  --input-path dada2/ex-mito_ex-chloro.qza \
+  --output-path ASVs
+
+biom convert -i ASVs/feature-table.biom -o ASVs/ASV_table.txt --to-tsv 
+# this actually makes a .txt file, need to make it a tsv manually
+
+
+#remove SVs from this table that are clearly mitochondria/chlorophast (find these by using the taxonomy table, and also blasting any unassigned sequences against the mitochondria 12S and the NT database, sac. Ceriviseae (make fasta file using the selecting_unassigned_SV_sequences.RMD or doing tab to fasta) 12S is in QIIME resources folder). Make sure all unassigned that have no 16S bacterial hits are accounted for. 
+#Save this blast search in the ASVs folder as unassigned_SVs-blast_against_mus_12S or unassigned_SVs-blast_against_yeast
+
+#save this as ASV_table_mito_removed.tsv
+
+
+#Now use the rolling ball code to filter SVs https://github.com/aortizsax/otuzeros
+#in the ASV folder
+# made an environment: conda create --name zero-filter python==3.7.5 pandas=1.3.3 numpy=1.19.2 matplotlib=3.3.4 scipy=1.7
+
+conda activate zero-filter
+
+python3 ../../zero-filtering/scripts/2022-09-13_calccutoff.py ./ASV_table_mito_removed.tsv
+
+conda deactivate 
+
+
+#This outputs a .csv table. Need to convert to biom to get it back into QIIME2
+#need to remove the first column in the csv that Adrian's code makes and save it as tab-delimited txt (.txt)
+#back out of ASVs
+
+biom convert -i ASVs/zerofilteredOTU/ASV_table_mito_removedtable.zerofiltered.txt -o ASVs/zerofilteredOTU/ASV_tabletable_zerofiltered.biom --table-type="OTU table" --to-json
+
+#Now import the filtered biom into QIIME2
+qiime tools import \
+  --input-path ASVs/zerofilteredOTU/ASV_tabletable_zerofiltered.biom \
+  --type 'FeatureTable[Frequency]' \
+  --input-format BIOMV100Format \
+  --output-path ASVs/zerofilteredOTU/table-ASVs-filtered_no_mito.qza
+
+
+#Now use those ASVs to Collapse taxonomic assignment with feature table
+#regarding p levels, genus is 6 and species is 7
+
+#filtered data
+mkdir taxtable_species
+mkdir taxtable_genus
+mkdir taxtable_family
+
+qiime taxa collapse \
+  --i-table ASVs/zerofilteredOTU/table-ASVs-filtered_no_mito.qza \
+  --i-taxonomy taxonomy.qza \
+  --p-level 6 \
+  --o-collapsed-table taxtable_genus/genus_table-dada2.qza 
+
+
+qiime taxa collapse \
+  --i-table ASVs/zerofilteredOTU/table-ASVs-filtered_no_mito.qza \
+  --i-taxonomy taxonomy.qza \
+  --p-level 7 \
+  --o-collapsed-table taxtable_species/species_table-dada2.qza 
+
+
+qiime taxa collapse \
+--i-table ASVs/zerofilteredOTU/table-ASVs-filtered_no_mito.qza \
+--i-taxonomy taxonomy.qza \
+--p-level 5 \
+--o-collapsed-table taxtable_family/family_table-dada2.qza 
+
+#export qiime taxonomy table to biom table to txt
+qiime tools export \
+  --input-path taxtable_species/species_table-dada2.qza \
+  --output-path biom_tables_species
+
+biom convert -i biom_tables_species/feature-table.biom -o biom_tables_species/PT_table.from_biom.txt --to-tsv 
+
+
+qiime tools export \
+  --input-path taxtable_genus/genus_table-dada2.qza \
+  --output-path biom_tables_genus
+
+biom convert -i biom_tables_genus/feature-table.biom -o biom_tables_genus/PT_table.from_biom.txt --to-tsv 
+
+
+qiime tools export \
+  --input-path taxtable_family/family_table-dada2.qza \
+  --output-path biom_tables_family
+
+biom convert -i biom_tables_family/feature-table.biom -o biom_tables_family/familyPT_table.from_biom.txt --to-tsv 
+
+#to view
+cat biom_tables_family/familyPT_table.from_biom.txt
+
+
+mkdir phylogeny
+#get rooted tree 
+qiime phylogeny align-to-tree-mafft-fasttree \
+  --p-n-threads 14 \
+  --i-sequences dada2/rep-seqs-dada2.qza \
+  --o-alignment phylogeny/aligned-rep-seqs.qza \
+  --o-masked-alignment phylogeny/masked-aligned-rep-seqs.qza \
+  --o-tree phylogeny/unrooted-tree.qza \
+  --o-rooted-tree phylogeny/rooted-tree.qza
+
+
+#filtered
+#diversity analysis change rarefaction depth for filtered 
+qiime feature-table summarize \
+  --i-table ASVs/zerofilteredOTU/table-ASVs-filtered_no_mito.qza \
+  --o-visualization visualizations/sampling-depth-table_filtered.qzv \
+  --m-sample-metadata-file metadata.txt
+
+
+qiime diversity alpha-rarefaction \
+--i-table ASVs/zerofilteredOTU/table-ASVs-filtered_no_mito.qza \
+--i-phylogeny phylogeny/rooted-tree.qza \
+--p-max-depth 5000 \
+--m-metadata-file metadata.txt \
+--o-visualization visualizations/alpha-rarefaction_max-5000_filtered.qzv
+
+mkdir diversity
+
+qiime diversity core-metrics-phylogenetic \
+  --p-n-jobs-or-threads 8 \
+  --i-phylogeny phylogeny/rooted-tree.qza \
+  --i-table ASVs/zerofilteredOTU/table-ASVs-filtered_no_mito.qza \
+  --p-sampling-depth 5010 \
+  --m-metadata-file metadata.txt \
+  --output-dir diversity/core-metrics-results
+#Sampling depth values:
+#8535 for cecum -omits one
+#5010 for feces
+#1860 for ileum 
+#1011 for duo- omits one
+
+
+#export diversity metrics as tables
+#rename the files after each export because it doesnt let us name it when exporting
+qiime tools export \
+  --input-path diversity/core-metrics-results/evenness_vector.qza \
+  --output-path diversity/exported-core-metrics-tables
+
+qiime tools export \
+  --input-path diversity/core-metrics-results/faith_pd_vector.qza \
+  --output-path diversity/exported-core-metrics-tables
+
+qiime tools export \
+  --input-path diversity/core-metrics-results/observed_features_vector.qza \
+  --output-path diversity/exported-core-metrics-tables
+
+qiime tools export \
+  --input-path diversity/core-metrics-results/shannon_vector.qza \
+  --output-path diversity/exported-core-metrics-tables
+
+qiime tools export \
+  --input-path diversity/core-metrics-results/unweighted_unifrac_distance_matrix.qza \
+  --output-path diversity/exported-core-metrics-tables
+
+qiime tools export \
+  --input-path diversity/core-metrics-results/weighted_unifrac_distance_matrix.qza \
+  --output-path diversity/exported-core-metrics-tables
+
+
+
+
+#look at the taxa barplot 
+qiime taxa barplot \
+  --i-table ASVs/table-ASVs-unfiltered.qza \
+  --i-taxonomy taxonomy.qza \
+  --m-metadata-file metadata.txt \
+  --o-visualization visualizations/taxa-bar-plots_no_mito.qzv
+
+#Also export the taxonomy table
+qiime tools export \
+  --input-path taxonomy.qza \
+  --output-path taxonomy_export
+
+
+
+
+
+
+
+
